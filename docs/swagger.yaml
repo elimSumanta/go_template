@@ -1,0 +1,84 @@
+definitions:
+  helper.BaseResponseSchema:
+    properties:
+      error: {}
+      meta: {}
+      result: {}
+      success:
+        type: boolean
+      traceId:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: This is P2P Gateway Documentation.
+  title: Bitwyre P2P Develop
+  version: "1.0"
+paths:
+  /private/main/ads/list:
+    get:
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/helper.BaseResponseSchema'
+      summary: Get Ads List
+      tags:
+      - Mainflow
+  /private/main/crypto/list:
+    get:
+      operationId: mainflow
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/helper.BaseResponseSchema'
+      summary: Get Crypto List
+      tags:
+      - Mainflow
+  /private/user/profile:
+    get:
+      operationId: user
+      parameters:
+      - description: With the bearer started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/helper.BaseResponseSchema'
+      summary: Get User Profile
+      tags:
+      - User
+  /public/healthcheck:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: HealthCheck
+      tags:
+      - HealthCheck
+swagger: "2.0"

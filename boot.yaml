@@ -1,0 +1,20 @@
+logger:
+  - name: my-logger
+    zap:
+      outputPaths: ["logs/log.log"]
+event:
+  - name: my-event
+    outputPaths: ["logs/event.log"]
+gin:
+  - name: p2p-service-go              # Required
+    port: 3051                        # Required
+    enabled: true                     # Required
+    prom:
+      enabled: true                   # Optional, default: false
+    commonService:
+      enabled: true                   # Optional, default: false
+    interceptors:
+      metricsProm:
+        enabled: true                 # Optional, default: false
+    sw:
+      enabled: true
